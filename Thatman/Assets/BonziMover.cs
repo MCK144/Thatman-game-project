@@ -20,8 +20,8 @@ public class BonziMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 force = new Vector3(6, 0, 0);
-        rb.AddForce(0,1,0);
+        Vector3 force = new Vector3(2, 0, 0);
+        rb.AddForce(force);
 
     }
 }
