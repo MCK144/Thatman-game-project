@@ -7,7 +7,12 @@ public class ThatmanAnimator : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
     SpriteRenderer sprite;
+
+    int prevDirection;
     int direction;
+    bool punching = false;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,16 +25,27 @@ public class ThatmanAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("speed", Mathf.Abs(rb.velocity.magnitude));
-
-        
-
-        if (rb.velocity.x < 1.0f)
+        // set direction
+        if (rb.velocity.x < -1.0f)
         {
             sprite.flipX = true;
-        } else
+        }
+        if (rb.velocity.x > 1.0f)
         {
             sprite.flipX = false;
         }
+        // set punching
+        if (Input.GetKey("space"))
+        {
+            punching = true;
+        }
+        else
+        {
+            punching = false;
+        }
+
+        animator.SetFloat("speed", Mathf.Abs(rb.velocity.magnitude));
+        animator.SetBool("punching", punching);
+
     }
 }
