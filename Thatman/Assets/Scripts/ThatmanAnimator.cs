@@ -7,6 +7,7 @@ public class ThatmanAnimator : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
     SpriteRenderer sprite;
+    Transform trans;
 
     int prevDirection;
     int direction;
@@ -20,11 +21,15 @@ public class ThatmanAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        trans = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //reset rotation
+        trans.rotation = Quaternion.identity;
+
         // set direction
         if (rb.velocity.x < -1.0f)
         {

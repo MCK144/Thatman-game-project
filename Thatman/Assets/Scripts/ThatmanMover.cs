@@ -27,7 +27,6 @@ public class ThatmanMover : MonoBehaviour
             touchingGround = false;
         }
         ProcessInput();
-        //CapVelocity();
     }
 
 
